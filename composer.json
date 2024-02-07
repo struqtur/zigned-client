@@ -1,0 +1,26 @@
+{
+    "name": "struqtur/zigned-client",
+    "description": "Zigned API client generated with Jane",
+    "extra": {
+        "symfony": {
+            "allow-contrib": "true"
+        }
+    },
+    "require-dev": {
+        "jane-php/open-api-3": "^7.6",
+        "friendsofphp/php-cs-fixer": "^3.49"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "require": {
+        "jane-php/open-api-runtime": "^7.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Library\\Generated\\": "generated/"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'openapi-file' => __DIR__ . '/schemas/zigned_rest_api.oas.spec.yaml',
+    'namespace' => 'Vendor\Library\Generated',
+    'directory' => __DIR__ . '/generated',
+];

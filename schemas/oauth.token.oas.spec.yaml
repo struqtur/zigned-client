@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: OAuth Token Service
+  version: 1.0.0
+servers:
+  - url: http://api.zigned.se/oauth
+paths:
+  /token:
+    post:
+      operationId: GetOauthAccessToken
+      summary: Obtain an OAuth 2.0 token using client credentials
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  description: Grant type, must be 'client_credentials'
+                  example: client_credentials
+                client_id:
+                  type: string
+                  description: The client identifier issued to the client
+                  example: your-client-id
+                client_secret:
+                  type: string
+                  description: The client secret
+                  example: your-client-secret
+              required:
+                - grant_type
+                - client_id
+                - client_secret
+      responses:
+        "200":
+          description: Access token generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    description: The access token issued by the authorization server
+                  token_type:
+                    type: string
+                    description: The type of token issued
+                  expires_in:
+                    type: integer
+                    description: The lifetime in seconds of the access token
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error code
+                  error_description:
+                    type: string
+                    description: Human-readable text providing additional information
+
+  /token/{access_token}:
+    delete:
+      operationId: DeleteOauthAccessToken
+      summary: Revoke an OAuth 2.0 token
+      parameters:
+        - in: path
+          name: access_token
+          required: true
+          schema:
+            type: string
+          description: The access token to be revoked
+      responses:
+        "201":
+          description: Token successfully revoked
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "token revoked"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error code
+                  error_description:
+                    type: string
+                    description: Human-readable text providing additional information
