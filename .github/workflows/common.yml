@@ -1,0 +1,7 @@
+name: Struqtur github tools
+on:
+  pull_request:
+
+jobs:
+  common:
+    uses: struqtur/.github/.github/workflows/common.yml@master
