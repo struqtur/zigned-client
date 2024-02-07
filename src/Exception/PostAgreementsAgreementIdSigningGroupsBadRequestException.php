@@ -1,24 +1,24 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 class PostAgreementsAgreementIdSigningGroupsBadRequestException extends BadRequestException
 {
     /**
-     * @var \Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsPostResponse400
+     * @var \Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsPostResponse400
      */
     private $agreementsAgreementIdSigningGroupsPostResponse400;
     /**
      * @var \Psr\Http\Message\ResponseInterface
      */
     private $response;
-    public function __construct(\Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsPostResponse400 $agreementsAgreementIdSigningGroupsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsPostResponse400 $agreementsAgreementIdSigningGroupsPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('POST /agreements/:agreement_id/signing_groups Error response');
         $this->agreementsAgreementIdSigningGroupsPostResponse400 = $agreementsAgreementIdSigningGroupsPostResponse400;
         $this->response = $response;
     }
-    public function getAgreementsAgreementIdSigningGroupsPostResponse400() : \Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsPostResponse400
+    public function getAgreementsAgreementIdSigningGroupsPostResponse400() : \Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsPostResponse400
     {
         return $this->agreementsAgreementIdSigningGroupsPostResponse400;
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class DeleteThemesThemeId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class DeleteThemesThemeId extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     protected $theme_id;
     /**
@@ -14,7 +14,7 @@ class DeleteThemesThemeId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoi
     {
         $this->theme_id = $themeId;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'DELETE';
@@ -34,19 +34,19 @@ class DeleteThemesThemeId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoi
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\DeleteThemesThemeIdBadRequestException
+     * @throws \Struqtur\Zigned\Exception\DeleteThemesThemeIdBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\ThemesThemeIdDeleteResponse200
+     * @return null|\Struqtur\Zigned\Model\ThemesThemeIdDeleteResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdDeleteResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\ThemesThemeIdDeleteResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\DeleteThemesThemeIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdDeleteResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\DeleteThemesThemeIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\ThemesThemeIdDeleteResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

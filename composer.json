@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Struqtur\\Zigned\\Api\\": "src/"
+            "Struqtur\\Zigned\\": "src/"
         }
     }
 }

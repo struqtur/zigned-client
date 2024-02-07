@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Model;
+namespace Struqtur\Zigned\Model;
 
 class _86d5051e0c6984da525697fc9654ac089e947844Item extends \ArrayObject
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class GetAgreements extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class GetAgreements extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     /**
      * Retrieves a paginated list of all agreements created by the authenticated client
@@ -21,7 +21,7 @@ class GetAgreements extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint imp
     {
         $this->queryParameters = $queryParameters;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'GET';
@@ -56,19 +56,19 @@ class GetAgreements extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint imp
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\GetAgreementsBadRequestException
+     * @throws \Struqtur\Zigned\Exception\GetAgreementsBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\AgreementsGetResponse200
+     * @return null|\Struqtur\Zigned\Model\AgreementsGetResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\GetAgreementsBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\GetAgreementsBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\AgreementsGetResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

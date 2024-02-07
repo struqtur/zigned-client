@@ -1,8 +1,8 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class PutAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class PutAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     protected $agreement_id;
     protected $signing_group_id;
@@ -11,15 +11,15 @@ class PutAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zign
      *
      * @param string $agreementId PUT /agreements/:agreement_id/signing_groups/:signing_group_id parameter
      * @param string $signingGroupId PUT /agreements/:agreement_id/signing_groups/:signing_group_id parameter
-     * @param null|\Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutBody $requestBody 
+     * @param null|\Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutBody $requestBody 
      */
-    public function __construct(string $agreementId, string $signingGroupId, ?\Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutBody $requestBody = null)
+    public function __construct(string $agreementId, string $signingGroupId, ?\Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutBody $requestBody = null)
     {
         $this->agreement_id = $agreementId;
         $this->signing_group_id = $signingGroupId;
         $this->body = $requestBody;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'PUT';
@@ -30,7 +30,7 @@ class PutAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zign
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        if ($this->body instanceof \Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutBody) {
+        if ($this->body instanceof \Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
         return [[], null];
@@ -42,19 +42,19 @@ class PutAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zign
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\PutAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException
+     * @throws \Struqtur\Zigned\Exception\PutAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutResponse200
+     * @return null|\Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdPutResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdPutResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdPutResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\PutAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdPutResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\PutAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdPutResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

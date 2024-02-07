@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Runtime\Normalizer;
+namespace Struqtur\Zigned\Runtime\Normalizer;
 
 trait CheckArray
 {

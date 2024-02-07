@@ -1,24 +1,24 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 class GetThemesBadRequestException extends BadRequestException
 {
     /**
-     * @var \Struqtur\Zigned\Api\Model\ThemesGetResponse400
+     * @var \Struqtur\Zigned\Model\ThemesGetResponse400
      */
     private $themesGetResponse400;
     /**
      * @var \Psr\Http\Message\ResponseInterface
      */
     private $response;
-    public function __construct(\Struqtur\Zigned\Api\Model\ThemesGetResponse400 $themesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Struqtur\Zigned\Model\ThemesGetResponse400 $themesGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('GET /themes Error response');
         $this->themesGetResponse400 = $themesGetResponse400;
         $this->response = $response;
     }
-    public function getThemesGetResponse400() : \Struqtur\Zigned\Api\Model\ThemesGetResponse400
+    public function getThemesGetResponse400() : \Struqtur\Zigned\Model\ThemesGetResponse400
     {
         return $this->themesGetResponse400;
     }

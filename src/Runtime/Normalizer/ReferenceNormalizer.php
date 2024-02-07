@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Runtime\Normalizer;
+namespace Struqtur\Zigned\Runtime\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\HttpKernel\Kernel;

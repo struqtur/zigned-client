@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Authentication;
+namespace Struqtur\Zigned\Authentication;
 
 class HTTP1Authentication implements \Jane\Component\OpenApiRuntime\Client\AuthenticationPlugin
 {

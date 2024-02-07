@@ -1,24 +1,24 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 class DeleteFilesFileIdBadRequestException extends BadRequestException
 {
     /**
-     * @var \Struqtur\Zigned\Api\Model\FilesFileIdDeleteResponse400
+     * @var \Struqtur\Zigned\Model\FilesFileIdDeleteResponse400
      */
     private $filesFileIdDeleteResponse400;
     /**
      * @var \Psr\Http\Message\ResponseInterface
      */
     private $response;
-    public function __construct(\Struqtur\Zigned\Api\Model\FilesFileIdDeleteResponse400 $filesFileIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Struqtur\Zigned\Model\FilesFileIdDeleteResponse400 $filesFileIdDeleteResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('DELETE /files/:file_id Error response');
         $this->filesFileIdDeleteResponse400 = $filesFileIdDeleteResponse400;
         $this->response = $response;
     }
-    public function getFilesFileIdDeleteResponse400() : \Struqtur\Zigned\Api\Model\FilesFileIdDeleteResponse400
+    public function getFilesFileIdDeleteResponse400() : \Struqtur\Zigned\Model\FilesFileIdDeleteResponse400
     {
         return $this->filesFileIdDeleteResponse400;
     }

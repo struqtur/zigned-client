@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Model;
+namespace Struqtur\Zigned\Model;
 
 class AgreementsAgreementIdDocumentsAttachmentsAttachmentIdGetResponse400Error extends \ArrayObject
 {

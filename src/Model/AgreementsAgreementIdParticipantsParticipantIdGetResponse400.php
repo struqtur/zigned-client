@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Model;
+namespace Struqtur\Zigned\Model;
 
 class AgreementsAgreementIdParticipantsParticipantIdGetResponse400 extends \ArrayObject
 {

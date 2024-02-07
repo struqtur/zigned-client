@@ -1,24 +1,24 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 class PostAgreementsAgreementIdDocumentsMainBadRequestException extends BadRequestException
 {
     /**
-     * @var \Struqtur\Zigned\Api\Model\AgreementsAgreementIdDocumentsMainPostResponse400
+     * @var \Struqtur\Zigned\Model\AgreementsAgreementIdDocumentsMainPostResponse400
      */
     private $agreementsAgreementIdDocumentsMainPostResponse400;
     /**
      * @var \Psr\Http\Message\ResponseInterface
      */
     private $response;
-    public function __construct(\Struqtur\Zigned\Api\Model\AgreementsAgreementIdDocumentsMainPostResponse400 $agreementsAgreementIdDocumentsMainPostResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Struqtur\Zigned\Model\AgreementsAgreementIdDocumentsMainPostResponse400 $agreementsAgreementIdDocumentsMainPostResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('POST /agreements/:agreement_id/documents/main Error response');
         $this->agreementsAgreementIdDocumentsMainPostResponse400 = $agreementsAgreementIdDocumentsMainPostResponse400;
         $this->response = $response;
     }
-    public function getAgreementsAgreementIdDocumentsMainPostResponse400() : \Struqtur\Zigned\Api\Model\AgreementsAgreementIdDocumentsMainPostResponse400
+    public function getAgreementsAgreementIdDocumentsMainPostResponse400() : \Struqtur\Zigned\Model\AgreementsAgreementIdDocumentsMainPostResponse400
     {
         return $this->agreementsAgreementIdDocumentsMainPostResponse400;
     }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Normalizer;
+namespace Struqtur\Zigned\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Struqtur\Zigned\Api\Runtime\Normalizer\CheckArray;
-use Struqtur\Zigned\Api\Runtime\Normalizer\ValidatorTrait;
+use Struqtur\Zigned\Runtime\Normalizer\CheckArray;
+use Struqtur\Zigned\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -22,11 +22,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200';
+            return $type === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200';
         }
         public function denormalize(mixed $data, string $type, string $format = null, array $context = []) : mixed
         {
@@ -36,7 +36,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\AgreementsGetResponse200();
+            $object = new \Struqtur\Zigned\Model\AgreementsGetResponse200();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -55,13 +55,13 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('data', $data)) {
                 $values = [];
                 foreach ($data['data'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem', 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem', 'json', $context);
                 }
                 $object->setData($values);
                 unset($data['data']);
             }
             if (\array_key_exists('pagination', $data)) {
-                $object->setPagination($this->denormalizer->denormalize($data['pagination'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200Pagination', 'json', $context));
+                $object->setPagination($this->denormalizer->denormalize($data['pagination'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200Pagination', 'json', $context));
                 unset($data['pagination']);
             }
             foreach ($data as $key => $value_1) {
@@ -92,7 +92,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200' => false];
+            return ['Struqtur\\Zigned\\Model\\AgreementsGetResponse200' => false];
         }
     }
 } else {
@@ -104,11 +104,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization($data, $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200';
+            return $type === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200';
         }
         /**
          * @return mixed
@@ -121,7 +121,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\AgreementsGetResponse200();
+            $object = new \Struqtur\Zigned\Model\AgreementsGetResponse200();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -140,13 +140,13 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (\array_key_exists('data', $data)) {
                 $values = [];
                 foreach ($data['data'] as $value) {
-                    $values[] = $this->denormalizer->denormalize($value, 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem', 'json', $context);
+                    $values[] = $this->denormalizer->denormalize($value, 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem', 'json', $context);
                 }
                 $object->setData($values);
                 unset($data['data']);
             }
             if (\array_key_exists('pagination', $data)) {
-                $object->setPagination($this->denormalizer->denormalize($data['pagination'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200Pagination', 'json', $context));
+                $object->setPagination($this->denormalizer->denormalize($data['pagination'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200Pagination', 'json', $context));
                 unset($data['pagination']);
             }
             foreach ($data as $key => $value_1) {
@@ -180,7 +180,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200' => false];
+            return ['Struqtur\\Zigned\\Model\\AgreementsGetResponse200' => false];
         }
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class DeleteWebhooksWebhookId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class DeleteWebhooksWebhookId extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     protected $webhook_id;
     /**
@@ -14,7 +14,7 @@ class DeleteWebhooksWebhookId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEn
     {
         $this->webhook_id = $webhookId;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'DELETE';
@@ -34,19 +34,19 @@ class DeleteWebhooksWebhookId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEn
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\DeleteWebhooksWebhookIdBadRequestException
+     * @throws \Struqtur\Zigned\Exception\DeleteWebhooksWebhookIdBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\WebhooksWebhookIdDeleteResponse200
+     * @return null|\Struqtur\Zigned\Model\WebhooksWebhookIdDeleteResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\WebhooksWebhookIdDeleteResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\WebhooksWebhookIdDeleteResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\DeleteWebhooksWebhookIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\WebhooksWebhookIdDeleteResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\DeleteWebhooksWebhookIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\WebhooksWebhookIdDeleteResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

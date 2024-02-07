@@ -1,8 +1,8 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class GetAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class GetAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     protected $agreement_id;
     protected $signing_group_id;
@@ -17,7 +17,7 @@ class GetAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zign
         $this->agreement_id = $agreementId;
         $this->signing_group_id = $signingGroupId;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'GET';
@@ -37,19 +37,19 @@ class GetAgreementsAgreementIdSigningGroupsSigningGroupId extends \Struqtur\Zign
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\GetAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException
+     * @throws \Struqtur\Zigned\Exception\GetAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdGetResponse200
+     * @return null|\Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsSigningGroupIdGetResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdGetResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdGetResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\GetAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdGetResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\GetAgreementsAgreementIdSigningGroupsSigningGroupIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsSigningGroupIdGetResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

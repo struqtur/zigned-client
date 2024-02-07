@@ -1,10 +1,10 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Normalizer;
+namespace Struqtur\Zigned\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Struqtur\Zigned\Api\Runtime\Normalizer\CheckArray;
-use Struqtur\Zigned\Api\Runtime\Normalizer\ValidatorTrait;
+use Struqtur\Zigned\Runtime\Normalizer\CheckArray;
+use Struqtur\Zigned\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -22,11 +22,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem';
+            return $type === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem';
         }
         public function denormalize(mixed $data, string $type, string $format = null, array $context = []) : mixed
         {
@@ -36,7 +36,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\AgreementsGetResponse200DataItem();
+            $object = new \Struqtur\Zigned\Model\AgreementsGetResponse200DataItem();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -68,7 +68,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['theme']);
             }
             if (\array_key_exists('issuer', $data)) {
-                $object->setIssuer($this->denormalizer->denormalize($data['issuer'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemIssuer', 'json', $context));
+                $object->setIssuer($this->denormalizer->denormalize($data['issuer'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemIssuer', 'json', $context));
                 unset($data['issuer']);
             }
             if (\array_key_exists('participants', $data)) {
@@ -80,19 +80,19 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['signing_groups']);
             }
             if (\array_key_exists('documents', $data)) {
-                $object->setDocuments($this->denormalizer->denormalize($data['documents'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemDocuments', 'json', $context));
+                $object->setDocuments($this->denormalizer->denormalize($data['documents'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemDocuments', 'json', $context));
                 unset($data['documents']);
             }
             if (\array_key_exists('signing_order', $data)) {
-                $object->setSigningOrder($this->denormalizer->denormalize($data['signing_order'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemSigningOrder', 'json', $context));
+                $object->setSigningOrder($this->denormalizer->denormalize($data['signing_order'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemSigningOrder', 'json', $context));
                 unset($data['signing_order']);
             }
             if (\array_key_exists('communication', $data)) {
-                $object->setCommunication($this->denormalizer->denormalize($data['communication'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemCommunication', 'json', $context));
+                $object->setCommunication($this->denormalizer->denormalize($data['communication'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemCommunication', 'json', $context));
                 unset($data['communication']);
             }
             if (\array_key_exists('metadata', $data)) {
-                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemMetadata', 'json', $context));
+                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemMetadata', 'json', $context));
                 unset($data['metadata']);
             }
             if (\array_key_exists('updated_at', $data)) {
@@ -143,7 +143,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem' => false];
+            return ['Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem' => false];
         }
     }
 } else {
@@ -155,11 +155,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization($data, $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem';
+            return $type === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem';
         }
         /**
          * @return mixed
@@ -172,7 +172,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\AgreementsGetResponse200DataItem();
+            $object = new \Struqtur\Zigned\Model\AgreementsGetResponse200DataItem();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -204,7 +204,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['theme']);
             }
             if (\array_key_exists('issuer', $data)) {
-                $object->setIssuer($this->denormalizer->denormalize($data['issuer'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemIssuer', 'json', $context));
+                $object->setIssuer($this->denormalizer->denormalize($data['issuer'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemIssuer', 'json', $context));
                 unset($data['issuer']);
             }
             if (\array_key_exists('participants', $data)) {
@@ -216,19 +216,19 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['signing_groups']);
             }
             if (\array_key_exists('documents', $data)) {
-                $object->setDocuments($this->denormalizer->denormalize($data['documents'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemDocuments', 'json', $context));
+                $object->setDocuments($this->denormalizer->denormalize($data['documents'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemDocuments', 'json', $context));
                 unset($data['documents']);
             }
             if (\array_key_exists('signing_order', $data)) {
-                $object->setSigningOrder($this->denormalizer->denormalize($data['signing_order'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemSigningOrder', 'json', $context));
+                $object->setSigningOrder($this->denormalizer->denormalize($data['signing_order'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemSigningOrder', 'json', $context));
                 unset($data['signing_order']);
             }
             if (\array_key_exists('communication', $data)) {
-                $object->setCommunication($this->denormalizer->denormalize($data['communication'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemCommunication', 'json', $context));
+                $object->setCommunication($this->denormalizer->denormalize($data['communication'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemCommunication', 'json', $context));
                 unset($data['communication']);
             }
             if (\array_key_exists('metadata', $data)) {
-                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItemMetadata', 'json', $context));
+                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItemMetadata', 'json', $context));
                 unset($data['metadata']);
             }
             if (\array_key_exists('updated_at', $data)) {
@@ -282,7 +282,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\AgreementsGetResponse200DataItem' => false];
+            return ['Struqtur\\Zigned\\Model\\AgreementsGetResponse200DataItem' => false];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Runtime\Client;
+namespace Struqtur\Zigned\Runtime\Client;
 
 use Symfony\Component\OptionsResolver\Options;
 interface CustomQueryResolver

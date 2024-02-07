@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 interface ServerException extends ApiException
 {

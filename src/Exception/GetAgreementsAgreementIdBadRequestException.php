@@ -1,24 +1,24 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 class GetAgreementsAgreementIdBadRequestException extends BadRequestException
 {
     /**
-     * @var \Struqtur\Zigned\Api\Model\AgreementsAgreementIdGetResponse400
+     * @var \Struqtur\Zigned\Model\AgreementsAgreementIdGetResponse400
      */
     private $agreementsAgreementIdGetResponse400;
     /**
      * @var \Psr\Http\Message\ResponseInterface
      */
     private $response;
-    public function __construct(\Struqtur\Zigned\Api\Model\AgreementsAgreementIdGetResponse400 $agreementsAgreementIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Struqtur\Zigned\Model\AgreementsAgreementIdGetResponse400 $agreementsAgreementIdGetResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('GET /agreements/:agreement_id Error response');
         $this->agreementsAgreementIdGetResponse400 = $agreementsAgreementIdGetResponse400;
         $this->response = $response;
     }
-    public function getAgreementsAgreementIdGetResponse400() : \Struqtur\Zigned\Api\Model\AgreementsAgreementIdGetResponse400
+    public function getAgreementsAgreementIdGetResponse400() : \Struqtur\Zigned\Model\AgreementsAgreementIdGetResponse400
     {
         return $this->agreementsAgreementIdGetResponse400;
     }

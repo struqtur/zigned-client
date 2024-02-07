@@ -1,8 +1,8 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class GetFiles extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class GetFiles extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     /**
      * Retrieves a paginated list of all files uploaded by the client or user
@@ -21,7 +21,7 @@ class GetFiles extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implemen
     {
         $this->queryParameters = $queryParameters;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'GET';
@@ -56,19 +56,19 @@ class GetFiles extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implemen
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\GetFilesBadRequestException
+     * @throws \Struqtur\Zigned\Exception\GetFilesBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\FilesGetResponse200
+     * @return null|\Struqtur\Zigned\Model\FilesGetResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\FilesGetResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\FilesGetResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\GetFilesBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\FilesGetResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\GetFilesBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\FilesGetResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

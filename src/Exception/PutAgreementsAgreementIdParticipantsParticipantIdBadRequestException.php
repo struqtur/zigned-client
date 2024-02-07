@@ -1,24 +1,24 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Exception;
+namespace Struqtur\Zigned\Exception;
 
 class PutAgreementsAgreementIdParticipantsParticipantIdBadRequestException extends BadRequestException
 {
     /**
-     * @var \Struqtur\Zigned\Api\Model\AgreementsAgreementIdParticipantsParticipantIdPutResponse400
+     * @var \Struqtur\Zigned\Model\AgreementsAgreementIdParticipantsParticipantIdPutResponse400
      */
     private $agreementsAgreementIdParticipantsParticipantIdPutResponse400;
     /**
      * @var \Psr\Http\Message\ResponseInterface
      */
     private $response;
-    public function __construct(\Struqtur\Zigned\Api\Model\AgreementsAgreementIdParticipantsParticipantIdPutResponse400 $agreementsAgreementIdParticipantsParticipantIdPutResponse400, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Struqtur\Zigned\Model\AgreementsAgreementIdParticipantsParticipantIdPutResponse400 $agreementsAgreementIdParticipantsParticipantIdPutResponse400, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('PUT /agreements/:agreement_id/participants/:participant_id Error response');
         $this->agreementsAgreementIdParticipantsParticipantIdPutResponse400 = $agreementsAgreementIdParticipantsParticipantIdPutResponse400;
         $this->response = $response;
     }
-    public function getAgreementsAgreementIdParticipantsParticipantIdPutResponse400() : \Struqtur\Zigned\Api\Model\AgreementsAgreementIdParticipantsParticipantIdPutResponse400
+    public function getAgreementsAgreementIdParticipantsParticipantIdPutResponse400() : \Struqtur\Zigned\Model\AgreementsAgreementIdParticipantsParticipantIdPutResponse400
     {
         return $this->agreementsAgreementIdParticipantsParticipantIdPutResponse400;
     }

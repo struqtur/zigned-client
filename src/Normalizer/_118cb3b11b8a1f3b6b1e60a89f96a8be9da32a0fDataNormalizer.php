@@ -1,10 +1,10 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Normalizer;
+namespace Struqtur\Zigned\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Struqtur\Zigned\Api\Runtime\Normalizer\CheckArray;
-use Struqtur\Zigned\Api\Runtime\Normalizer\ValidatorTrait;
+use Struqtur\Zigned\Runtime\Normalizer\CheckArray;
+use Struqtur\Zigned\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -22,11 +22,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
+            return $type === 'Struqtur\\Zigned\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
         }
         public function denormalize(mixed $data, string $type, string $format = null, array $context = []) : mixed
         {
@@ -36,7 +36,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData();
+            $object = new \Struqtur\Zigned\Model\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData();
             if (\array_key_exists('order', $data) && \is_int($data['order'])) {
                 $data['order'] = (double) $data['order'];
             }
@@ -107,7 +107,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData' => false];
+            return ['Struqtur\\Zigned\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData' => false];
         }
     }
 } else {
@@ -119,11 +119,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization($data, $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
+            return $type === 'Struqtur\\Zigned\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData';
         }
         /**
          * @return mixed
@@ -136,7 +136,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData();
+            $object = new \Struqtur\Zigned\Model\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData();
             if (\array_key_exists('order', $data) && \is_int($data['order'])) {
                 $data['order'] = (double) $data['order'];
             }
@@ -210,7 +210,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData' => false];
+            return ['Struqtur\\Zigned\\Model\\_118cb3b11b8a1f3b6b1e60a89f96a8be9da32a0fData' => false];
         }
     }
 }

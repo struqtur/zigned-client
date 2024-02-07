@@ -1,10 +1,10 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Normalizer;
+namespace Struqtur\Zigned\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Struqtur\Zigned\Api\Runtime\Normalizer\CheckArray;
-use Struqtur\Zigned\Api\Runtime\Normalizer\ValidatorTrait;
+use Struqtur\Zigned\Runtime\Normalizer\CheckArray;
+use Struqtur\Zigned\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -22,11 +22,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
+            return $type === 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
         }
         public function denormalize(mixed $data, string $type, string $format = null, array $context = []) : mixed
         {
@@ -36,7 +36,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsPostBody();
+            $object = new \Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsPostBody();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -88,7 +88,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsPostBody' => false];
+            return ['Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsPostBody' => false];
         }
     }
 } else {
@@ -100,11 +100,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization($data, $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
+            return $type === 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsPostBody';
         }
         /**
          * @return mixed
@@ -117,7 +117,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\AgreementsAgreementIdSigningGroupsPostBody();
+            $object = new \Struqtur\Zigned\Model\AgreementsAgreementIdSigningGroupsPostBody();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -172,7 +172,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\AgreementsAgreementIdSigningGroupsPostBody' => false];
+            return ['Struqtur\\Zigned\\Model\\AgreementsAgreementIdSigningGroupsPostBody' => false];
         }
     }
 }

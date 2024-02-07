@@ -1,22 +1,22 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Endpoint;
+namespace Struqtur\Zigned\Endpoint;
 
-class PutWebhooksWebhookId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Api\Runtime\Client\Endpoint
+class PutWebhooksWebhookId extends \Struqtur\Zigned\Runtime\Client\BaseEndpoint implements \Struqtur\Zigned\Runtime\Client\Endpoint
 {
     protected $webhook_id;
     /**
      * Updates a webhook created by the account associated with the authenticated client.
      *
      * @param string $webhookId PUT /webhooks/:webhook_id parameter
-     * @param null|\Struqtur\Zigned\Api\Model\WebhooksWebhookIdPutBody $requestBody 
+     * @param null|\Struqtur\Zigned\Model\WebhooksWebhookIdPutBody $requestBody 
      */
-    public function __construct(string $webhookId, ?\Struqtur\Zigned\Api\Model\WebhooksWebhookIdPutBody $requestBody = null)
+    public function __construct(string $webhookId, ?\Struqtur\Zigned\Model\WebhooksWebhookIdPutBody $requestBody = null)
     {
         $this->webhook_id = $webhookId;
         $this->body = $requestBody;
     }
-    use \Struqtur\Zigned\Api\Runtime\Client\EndpointTrait;
+    use \Struqtur\Zigned\Runtime\Client\EndpointTrait;
     public function getMethod() : string
     {
         return 'PUT';
@@ -27,7 +27,7 @@ class PutWebhooksWebhookId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpo
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
     {
-        if ($this->body instanceof \Struqtur\Zigned\Api\Model\WebhooksWebhookIdPutBody) {
+        if ($this->body instanceof \Struqtur\Zigned\Model\WebhooksWebhookIdPutBody) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
         return [[], null];
@@ -39,19 +39,19 @@ class PutWebhooksWebhookId extends \Struqtur\Zigned\Api\Runtime\Client\BaseEndpo
     /**
      * {@inheritdoc}
      *
-     * @throws \Struqtur\Zigned\Api\Exception\PutWebhooksWebhookIdBadRequestException
+     * @throws \Struqtur\Zigned\Exception\PutWebhooksWebhookIdBadRequestException
      *
-     * @return null|\Struqtur\Zigned\Api\Model\WebhooksWebhookIdPutResponse200
+     * @return null|\Struqtur\Zigned\Model\WebhooksWebhookIdPutResponse200
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\WebhooksWebhookIdPutResponse200', 'json');
+            return $serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\WebhooksWebhookIdPutResponse200', 'json');
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Struqtur\Zigned\Api\Exception\PutWebhooksWebhookIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Api\\Model\\WebhooksWebhookIdPutResponse400', 'json'), $response);
+            throw new \Struqtur\Zigned\Exception\PutWebhooksWebhookIdBadRequestException($serializer->deserialize($body, 'Struqtur\\Zigned\\Model\\WebhooksWebhookIdPutResponse400', 'json'), $response);
         }
     }
     public function getAuthenticationScopes() : array

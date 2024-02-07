@@ -1,6 +1,6 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Runtime\Client;
+namespace Struqtur\Zigned\Runtime\Client;
 
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 use Psr\Http\Client\ClientInterface;

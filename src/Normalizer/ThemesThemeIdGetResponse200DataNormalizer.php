@@ -1,10 +1,10 @@
 <?php
 
-namespace Struqtur\Zigned\Api\Normalizer;
+namespace Struqtur\Zigned\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
-use Struqtur\Zigned\Api\Runtime\Normalizer\CheckArray;
-use Struqtur\Zigned\Api\Runtime\Normalizer\ValidatorTrait;
+use Struqtur\Zigned\Runtime\Normalizer\CheckArray;
+use Struqtur\Zigned\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -22,11 +22,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200Data';
+            return $type === 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200Data';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200Data';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200Data';
         }
         public function denormalize(mixed $data, string $type, string $format = null, array $context = []) : mixed
         {
@@ -36,7 +36,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\ThemesThemeIdGetResponse200Data();
+            $object = new \Struqtur\Zigned\Model\ThemesThemeIdGetResponse200Data();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -49,11 +49,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['resource_type']);
             }
             if (\array_key_exists('logo', $data)) {
-                $object->setLogo($this->denormalizer->denormalize($data['logo'], 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200DataLogo', 'json', $context));
+                $object->setLogo($this->denormalizer->denormalize($data['logo'], 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200DataLogo', 'json', $context));
                 unset($data['logo']);
             }
             if (\array_key_exists('icon', $data)) {
-                $object->setIcon($this->denormalizer->denormalize($data['icon'], 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200DataIcon', 'json', $context));
+                $object->setIcon($this->denormalizer->denormalize($data['icon'], 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200DataIcon', 'json', $context));
                 unset($data['icon']);
             }
             if (\array_key_exists('primary_color', $data)) {
@@ -61,7 +61,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['primary_color']);
             }
             if (\array_key_exists('metadata', $data)) {
-                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200DataMetadata', 'json', $context));
+                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200DataMetadata', 'json', $context));
                 unset($data['metadata']);
             }
             if (\array_key_exists('created_at', $data)) {
@@ -103,7 +103,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200Data' => false];
+            return ['Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200Data' => false];
         }
     }
 } else {
@@ -115,11 +115,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         use ValidatorTrait;
         public function supportsDenormalization($data, $type, string $format = null, array $context = []) : bool
         {
-            return $type === 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200Data';
+            return $type === 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200Data';
         }
         public function supportsNormalization(mixed $data, string $format = null, array $context = []) : bool
         {
-            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200Data';
+            return is_object($data) && get_class($data) === 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200Data';
         }
         /**
          * @return mixed
@@ -132,7 +132,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
             if (isset($data['$recursiveRef'])) {
                 return new Reference($data['$recursiveRef'], $context['document-origin']);
             }
-            $object = new \Struqtur\Zigned\Api\Model\ThemesThemeIdGetResponse200Data();
+            $object = new \Struqtur\Zigned\Model\ThemesThemeIdGetResponse200Data();
             if (null === $data || false === \is_array($data)) {
                 return $object;
             }
@@ -145,11 +145,11 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['resource_type']);
             }
             if (\array_key_exists('logo', $data)) {
-                $object->setLogo($this->denormalizer->denormalize($data['logo'], 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200DataLogo', 'json', $context));
+                $object->setLogo($this->denormalizer->denormalize($data['logo'], 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200DataLogo', 'json', $context));
                 unset($data['logo']);
             }
             if (\array_key_exists('icon', $data)) {
-                $object->setIcon($this->denormalizer->denormalize($data['icon'], 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200DataIcon', 'json', $context));
+                $object->setIcon($this->denormalizer->denormalize($data['icon'], 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200DataIcon', 'json', $context));
                 unset($data['icon']);
             }
             if (\array_key_exists('primary_color', $data)) {
@@ -157,7 +157,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
                 unset($data['primary_color']);
             }
             if (\array_key_exists('metadata', $data)) {
-                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200DataMetadata', 'json', $context));
+                $object->setMetadata($this->denormalizer->denormalize($data['metadata'], 'Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200DataMetadata', 'json', $context));
                 unset($data['metadata']);
             }
             if (\array_key_exists('created_at', $data)) {
@@ -202,7 +202,7 @@ if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR
         }
         public function getSupportedTypes(?string $format = null) : array
         {
-            return ['Struqtur\\Zigned\\Api\\Model\\ThemesThemeIdGetResponse200Data' => false];
+            return ['Struqtur\\Zigned\\Model\\ThemesThemeIdGetResponse200Data' => false];
         }
     }
 }

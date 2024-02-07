@@ -2,6 +2,6 @@
 
 return [
     'openapi-file' => __DIR__ . '/schemas/zigned_rest_api.oas.spec.yaml',
-    'namespace' => 'Struqtur\Zigned\Api',
+    'namespace' => 'Struqtur\Zigned',
     'directory' => __DIR__ . '/src',
 ];
