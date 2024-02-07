@@ -1,6 +1,8 @@
 {
     "name": "struqtur/zigned-client",
     "description": "Zigned API client generated with Jane",
+    "type": "library",
+    "license": "proprietary",
     "extra": {
         "symfony": {
             "allow-contrib": "true"
@@ -20,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Vendor\\Library\\Generated\\": "generated/"
+            "Struqtur\\Zigned\\Api\\": "src/"
         }
     }
 }
