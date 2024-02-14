@@ -15,7 +15,7 @@ class FilesPostBody extends \ArrayObject
     /**
      * The binary representation of the file to upload.
      *
-     * @var string
+     * @var mixed
      */
     protected $file;
     /**
@@ -27,9 +27,9 @@ class FilesPostBody extends \ArrayObject
     /**
      * The binary representation of the file to upload.
      *
-     * @return string
+     * @return mixed
      */
-    public function getFile() : string
+    public function getFile() : mixed
     {
         return $this->file;
     }
@@ -40,7 +40,7 @@ class FilesPostBody extends \ArrayObject
      *
      * @return self
      */
-    public function setFile(string $file) : self
+    public function setFile(mixed $file) : self
     {
         $this->initialized['file'] = true;
         $this->file = $file;
